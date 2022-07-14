@@ -18,7 +18,7 @@ public class BurgerTest {
     Ingredient mockIngridient;
 
     @Test
-    public void setBuns() {
+    public void setBunsShouldSetReceivedBunInBurger() {
         Burger burger = new Burger();
         String expectedName = "big bun";
         float price = 220f;
@@ -29,7 +29,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void addIngredient() {
+    public void addIngredientListShouldContainAddedIngridient() {
         Burger burger = new Burger();
         Ingredient expectedIngridient = new Ingredient(IngredientType.FILLING, "long sausage", 200);
         burger.addIngredient(expectedIngridient);
@@ -37,7 +37,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void removeIngredient() {
+    public void removeIngredientListWithOneElementShouldBeEmpty() {
         Burger burger = new Burger();
         burger.ingredients.add(new Ingredient(IngredientType.SAUCE, "super sauce", 150));
         burger.removeIngredient(0);
@@ -45,7 +45,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void moveIngredient() {
+    public void moveIngredientListElementShouldChangeIndexToNewIndex() {
         Burger burger = new Burger();
         int expectedIndex = 1;
         Ingredient testIngridient = new Ingredient(IngredientType.SAUCE, "hot sauce", 130);
@@ -57,7 +57,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getPrice() {
+    public void getPriceReturnsTotalBurgerPrice() {
         Burger burger = new Burger();
         float expectedPrice = 700;
         burger.setBuns(mockBun);
@@ -70,7 +70,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void getReceipt() {
+    public void getReceiptReturnsInformationAboutBurger() {
         Burger burger = new Burger();
         burger.setBuns(mockBun);
         burger.addIngredient(mockIngridient);
