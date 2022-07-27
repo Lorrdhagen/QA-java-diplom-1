@@ -12,6 +12,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
+    private final float DELTA = 0.00f;
+
     @Mock
     Bun mockBun;
     @Mock
@@ -31,9 +33,8 @@ public class BurgerTest {
     @Test
     public void addIngredientListShouldContainAddedIngridient() {
         Burger burger = new Burger();
-        Ingredient expectedIngridient = new Ingredient(IngredientType.FILLING, "long sausage", 200);
-        burger.addIngredient(expectedIngridient);
-        assertEquals(expectedIngridient, burger.ingredients.get(0));
+        burger.addIngredient(mockIngridient);
+        assertEquals(1, burger.ingredients.size());
     }
 
     @Test
@@ -66,7 +67,7 @@ public class BurgerTest {
         Mockito.when(mockBun.getPrice()).thenReturn(150f);
         Mockito.when(mockIngridient.getPrice()).thenReturn(200f);
         float actualPrice = burger.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0.00f);
+        assertEquals(expectedPrice, actualPrice, DELTA);
     }
 
     @Test
@@ -81,6 +82,6 @@ public class BurgerTest {
         Mockito.when(mockBun.getPrice()).thenReturn(150f);
         Mockito.when(mockIngridient.getPrice()).thenReturn(200f);
         String actualRecipe = burger.getReceipt();
-        assertTrue(actualRecipe.contains("= filling bacon =") || actualRecipe.contains("==== black ====") || actualRecipe.contains("Price: 700"));
+        assertTrue(actualRecipe.contains("= filling bacon =") && actualRecipe.contains("==== black ====") && actualRecipe.contains("Price: 700"));
     }
 }
