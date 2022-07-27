@@ -26,7 +26,7 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void checkIngridientTypeContainsSauce() {
+    public void checkIngridientTypeContainsSauceAndFilling() {
         assertEquals(expectedType, actualType.toString());
     }
 }
