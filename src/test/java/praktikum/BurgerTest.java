@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
-    private final float DELTA = 0.00f;
+    BunTest bunTest;
 
     @Mock
     Bun mockBun;
@@ -67,7 +67,7 @@ public class BurgerTest {
         Mockito.when(mockBun.getPrice()).thenReturn(150f);
         Mockito.when(mockIngridient.getPrice()).thenReturn(200f);
         float actualPrice = burger.getPrice();
-        assertEquals(expectedPrice, actualPrice, DELTA);
+        assertEquals(expectedPrice, actualPrice, bunTest.DELTA);
     }
 
     @Test

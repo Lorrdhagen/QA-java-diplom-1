@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class IngredientTest {
 
-    private final float DELTA = 0.00f;
+    BunTest bunTest;
     private IngredientType ingredientType;
     private String name;
     private float price;
@@ -32,7 +32,7 @@ public class IngredientTest {
     public void getPriceReturnsIngredientPrice() {
         Ingredient ingredient = new Ingredient(ingredientType, name, price);
         float actualPrice = ingredient.getPrice();
-        assertEquals(price, actualPrice, DELTA);
+        assertEquals(price, actualPrice, bunTest.DELTA);
     }
 
     @Test

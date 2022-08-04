@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class BunTest {
 
-    private final float DELTA = 0.00f;
+    public final float DELTA = 0.00f;
 
     @Test
     public void getNameReturnsBunName() {
